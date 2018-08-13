@@ -1,7 +1,6 @@
 #include <Thermistor.h>
-Thermistor termistor(A5);
+Thermistor temp(5);
 int pinLDR = 4;
-int TValue = 0;
 int LDRValue = 0;
 void setup() {
   // put your setup code here, to run once:
@@ -12,10 +11,10 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  int TValue = termistor.getTemp(); 
+  float temperatura = temp.getTemp(); 
   LDRValue = analogRead(pinLDR);
   Serial.print (LDRValue);
   Serial.print (",");
-  Serial.println (TValue);
+  Serial.println (temperatura);
   delay (1500);
 }
